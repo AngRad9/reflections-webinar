@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Built on Trust | Reflections Collective Webinar</title>
+  <meta name="description" content="Join Reflections Collective for a conversation exploring what successful collaboration between pharma and advocacy groups looks like — featuring Sanofi and MTS Sickle Cell Foundation.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* --- NAV --- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(26, 26, 26, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      height: 20px;
+      opacity: 0.95;
+    }
+
+    .nav-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #999;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 24px 48px;
+      background: linear-gradient(180deg, #222 0%, #1a1a1a 100%);
+    }
+
+    .hero-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #76009F;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(26px, 5vw, 46px);
+      font-weight: 700;
+      line-height: 1.15;
+      max-width: 750px;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2.5vw, 19px);
+      font-weight: 300;
+      color: #bbb;
+      max-width: 600px;
+      margin-bottom: 12px;
+    }
+
+    .hero-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-meta strong {
+      color: #fff;
+    }
+
+    .cta-button {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      background: #76009F;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #8a1ab3;
+      transform: translateY(-1px);
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about {
+      padding: 48px 24px;
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #76009F;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #c0c0c0;
+      margin-bottom: 14px;
+    }
+
+    .topics {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .topics li {
+      font-size: 15px;
+      font-weight: 300;
+      color: #b0b0b0;
+      padding: 10px 0;
+      border-bottom: 1px solid #262626;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .topics li .topic-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #76009F;
+      min-width: 22px;
+    }
+
+    /* --- SPEAKERS --- */
+    .speakers {
+      padding: 48px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 28px;
+    }
+
+    .speaker-card {
+      text-align: center;
+    }
+
+    .speaker-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 14px;
+      display: block;
+      border: 2px solid #333;
+    }
+
+    .speaker-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .speaker-role {
+      font-size: 13px;
+      font-weight: 300;
+      color: #999;
+      line-height: 1.4;
+    }
+
+    .speaker-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #76009F;
+      margin-top: 6px;
+    }
+
+    /* --- REGISTRATION FORM --- */
+    .register {
+      padding: 48px 24px 60px;
+      max-width: 500px;
+      margin: 0 auto;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      background: #242424;
+      border: 1px solid #3a3a3a;
+      color: #f0f0f0;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #76009F;
+    }
+
+    .form-group input::placeholder {
+      color: #555;
+    }
+
+    .submit-button {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      background: #76009F;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .submit-button:hover {
+      background: #8a1ab3;
+    }
+
+    .submit-button:disabled {
+      background: #3a3a3a;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    /* --- CONFIRMATION --- */
+    .confirmation {
+      display: none;
+      padding: 60px 24px;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .confirmation.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .confirmation h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .confirmation p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #aaa;
+      margin-bottom: 28px;
+    }
+
+    .zoom-details {
+      background: #242424;
+      border: 1px solid #3a3a3a;
+      padding: 20px 28px;
+      margin-bottom: 24px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .zoom-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .zoom-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: #76009F;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .zoom-link:hover {
+      color: #8a1ab3;
+    }
+
+    .zoom-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .calendar-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .cal-button {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: transparent;
+      color: #ccc;
+      border: 1px solid #3a3a3a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cal-button:hover {
+      border-color: #76009F;
+      color: #fff;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid #262626;
+    }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* --- MOBILE --- */
+    @media (max-width: 640px) {
+      nav {
+        padding: 14px 16px;
+      }
+
+      .hero {
+        padding: 80px 16px 36px;
+      }
+
+      .about, .speakers, .register {
+        padding: 36px 16px;
+      }
+
+      .speaker-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .calendar-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="images/logo-white.png" alt="Reflections Collective" class="logo">
+    <span class="nav-date">May 5, 2026 &middot; 12:00 PM ET</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-label">Reflections Collective Presents</p>
+    <h1>Built on Trust</h1>
+    <p class="hero-subtitle">Inside the Sanofi &times; MTS Foundation Sickle Cell Partnership</p>
+    <p class="hero-meta"><strong>May 5, 2026</strong> &middot; 12:00 PM Eastern &middot; Virtual</p>
+    <a href="#register" class="cta-button">Register Now</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <p class="section-label">About This Event</p>
+    <p>What does successful collaboration between pharma and advocacy actually look like? This conversation explores the Sanofi &times; MTS Sickle Cell Foundation partnership as a real-world example — the origin story, how both sides defined success, and the outcomes that followed.</p>
+    <p>Whether you work in pharma, advocacy, clinical research, or community health, this session offers clear best practices and proof that trust-based collaboration improves outcomes for patients and sponsors alike.</p>
+
+    <ul class="topics">
+      <li><span class="topic-num">01</span> The origin story — what shared need created momentum to collaborate</li>
+      <li><span class="topic-num">02</span> Defining success together — aligning on what "working" looks like for both organizations</li>
+      <li><span class="topic-num">03</span> Mutual value — what each side gained from the partnership</li>
+      <li><span class="topic-num">04</span> Impact and outcomes — meaningful results and what comes next</li>
+    </ul>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section class="speakers">
+    <p class="section-label">Speakers</p>
+    <div class="speaker-grid">
+      <div class="speaker-card">
+        <img src="images/monique-adams.png" alt="Monique Adams, Ph.D." class="speaker-photo">
+        <p class="speaker-name">Monique Adams, Ph.D.</p>
+        <p class="speaker-role">Executive Director, Global Head<br>Diversity &amp; Inclusion in Clinical Trials</p>
+        <p class="speaker-tag">Sanofi</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/mapillar-dahn.png" alt="Mapillar Dahn" class="speaker-photo">
+        <p class="speaker-name">Mapillar Dahn</p>
+        <p class="speaker-role">Founder &amp; Executive Director</p>
+        <p class="speaker-tag">MTS Sickle Cell Foundation</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/skylar-bentmore.png" alt="Skylar Bentmore" class="speaker-photo">
+        <p class="speaker-name">Skylar Bentmore</p>
+        <p class="speaker-role">Director of Marketing</p>
+        <p class="speaker-tag">Moderator &middot; Heartbeat</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section class="register" id="register">
+    <p class="section-label">Register</p>
+    <form id="registration-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" required placeholder="Your organization">
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required placeholder="Your role">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+      </div>
+      <button type="submit" class="submit-button" id="submit-btn">Register</button>
+    </form>
+  </section>
+
+  <!-- CONFIRMATION (hidden until form submitted) -->
+  <section class="confirmation" id="confirmation">
+    <h2>You're registered.</h2>
+    <p>Save the Zoom link and add this event to your calendar now. You'll also receive an official calendar invite from <strong>info@bereflected.org</strong>.</p>
+
+    <div class="zoom-details">
+      <p class="zoom-label">Join link</p>
+      <a href="https://us06web.zoom.us/j/87429247113?pwd=AybiBdivhzynAu1mjA3fds4fqHNsTA.1" class="zoom-link" target="_blank" rel="noopener">us06web.zoom.us/j/87429247113</a>
+      <p class="zoom-meta">Meeting ID: 874 2924 7113 &middot; Passcode: 609509</p>
+    </div>
+
+    <div class="calendar-buttons">
+      <a href="#" id="gcal-link" class="cal-button" target="_blank" rel="noopener">Google Calendar</a>
+      <a href="#" id="outlook-link" class="cal-button" target="_blank" rel="noopener">Outlook</a>
+      <a href="#" id="ical-link" class="cal-button" download="reflections-webinar.ics">Apple Calendar</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Reflections Collective &middot; Illuminating the Path to Inclusive Medical Research</p>
+  </footer>
+
+  <script>
+    // --- CALENDAR EVENT DETAILS ---
+    const EVENT = {
+      title: 'Built on Trust: Inside the Sanofi × MTS Foundation Sickle Cell Partnership',
+      description: 'A Reflections Collective webinar exploring what successful collaboration between pharma and advocacy groups looks like — featuring Monique Adams, Ph.D. (Sanofi) and Mapillar Dahn (MTS Sickle Cell Foundation), moderated by Skylar Bentmore (Heartbeat).\n\nJoin Zoom Meeting: https://us06web.zoom.us/j/87429247113?pwd=AybiBdivhzynAu1mjA3fds4fqHNsTA.1\nMeeting ID: 874 2924 7113\nPasscode: 609509',
+      // May 5, 2026, 12:00 PM ET = 16:00 UTC (ET is UTC-4 in May)
+      startUTC: '20260505T160000Z',
+      endUTC: '20260505T170000Z',   // 1 hour duration
+      startLocal: '20260505T120000',
+      endLocal: '20260505T130000',
+      location: 'https://us06web.zoom.us/j/87429247113?pwd=AybiBdivhzynAu1mjA3fds4fqHNsTA.1',
+      timezone: 'America/New_York'
+    };
+
+    // Google Calendar link
+    function buildGoogleCalLink() {
+      const params = new URLSearchParams({
+        action: 'TEMPLATE',
+        text: EVENT.title,
+        dates: EVENT.startUTC.replace('Z','') + '/' + EVENT.endUTC.replace('Z',''),
+        details: EVENT.description,
+        location: EVENT.location,
+        ctz: EVENT.timezone
+      });
+      return 'https://calendar.google.com/calendar/render?' + params.toString();
+    }
+
+    // Outlook web link
+    function buildOutlookLink() {
+      const params = new URLSearchParams({
+        path: '/calendar/action/compose',
+        rru: 'addevent',
+        subject: EVENT.title,
+        startdt: '2026-05-05T12:00:00',
+        enddt: '2026-05-05T13:00:00',
+        body: EVENT.description,
+        location: EVENT.location
+      });
+      return 'https://outlook.live.com/calendar/0/deeplink/compose?' + params.toString();
+    }
+
+    // ICS file for Apple Calendar / other apps
+    function buildICSFile() {
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Reflections Collective//Webinar//EN',
+        'BEGIN:VEVENT',
+        'DTSTART:' + EVENT.startUTC,
+        'DTEND:' + EVENT.endUTC,
+        'SUMMARY:' + EVENT.title,
+        'DESCRIPTION:' + EVENT.description.replace(/\n/g, '\\n'),
+        'LOCATION:' + EVENT.location,
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+      return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+    }
+
+    // Set calendar links
+    document.getElementById('gcal-link').href = buildGoogleCalLink();
+    document.getElementById('outlook-link').href = buildOutlookLink();
+    document.getElementById('ical-link').href = buildICSFile();
+
+    // --- FORM SUBMISSION ---
+    // Replace this URL with your Google Apps Script web app URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvEVoCKA9I9bSm1oaQv6gNTvXKrwgQnopTcFGz_mXQvUJnKyQSswYv7VTMFA5JAF5T/exec';
+
+    document.getElementById('registration-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Registering...';
+
+      const formData = {
+        name: document.getElementById('name').value,
+        company: document.getElementById('company').value,
+        title: document.getElementById('title').value,
+        email: document.getElementById('email').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        if (GOOGLE_SCRIPT_URL) {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+        }
+
+        // Show confirmation
+        document.getElementById('register').style.display = 'none';
+        document.getElementById('confirmation').classList.add('active');
+        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        document.getElementById('register').style.display = 'none';
+        document.getElementById('confirmation').classList.add('active');
+        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Smooth scroll for CTA
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
