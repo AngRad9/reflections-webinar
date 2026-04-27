@@ -8,6 +8,18 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
+    :root {
+      --purple: #76009F;
+      --purple-dark: #5c007d;
+      --purple-light: #f4e8fa;
+      --ink: #1a1a1a;
+      --ink-soft: #444;
+      --muted: #777;
+      --line: #e4e4e4;
+      --surface: #fafafa;
+      --bg: #ffffff;
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -16,8 +28,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #1a1a1a;
-      color: #f0f0f0;
+      background: var(--bg);
+      color: var(--ink);
       min-height: 100vh;
       line-height: 1.6;
     }
@@ -33,20 +45,20 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(26, 26, 26, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
     .logo {
       height: 20px;
-      opacity: 0.95;
     }
 
     .nav-date {
       font-family: 'Space Mono', monospace;
       font-size: 12px;
       letter-spacing: 1px;
-      color: #999;
+      color: var(--muted);
     }
 
     /* --- HERO --- */
@@ -57,7 +69,7 @@
       align-items: center;
       text-align: center;
       padding: 100px 24px 48px;
-      background: linear-gradient(180deg, #222 0%, #1a1a1a 100%);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
     }
 
     .hero-label {
@@ -65,7 +77,7 @@
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #76009F;
+      color: var(--purple);
       margin-bottom: 16px;
     }
 
@@ -76,12 +88,13 @@
       line-height: 1.15;
       max-width: 750px;
       margin-bottom: 12px;
+      color: var(--ink);
     }
 
     .hero-subtitle {
       font-size: clamp(15px, 2.5vw, 19px);
       font-weight: 300;
-      color: #bbb;
+      color: var(--ink-soft);
       max-width: 600px;
       margin-bottom: 12px;
     }
@@ -89,13 +102,13 @@
     .hero-meta {
       font-family: 'Space Mono', monospace;
       font-size: 13px;
-      color: #999;
+      color: var(--muted);
       margin-bottom: 28px;
       letter-spacing: 0.5px;
     }
 
     .hero-meta strong {
-      color: #fff;
+      color: var(--ink);
     }
 
     .cta-button {
@@ -104,7 +117,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       padding: 14px 40px;
-      background: #76009F;
+      background: var(--purple);
       color: #fff;
       border: none;
       cursor: pointer;
@@ -114,7 +127,7 @@
     }
 
     .cta-button:hover {
-      background: #8a1ab3;
+      background: var(--purple-dark);
       transform: translateY(-1px);
     }
 
@@ -123,7 +136,7 @@
       padding: 48px 24px;
       max-width: 760px;
       margin: 0 auto;
-      border-top: 1px solid #2a2a2a;
+      border-top: 1px solid var(--line);
     }
 
     .section-label {
@@ -131,7 +144,7 @@
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #76009F;
+      color: var(--purple);
       margin-bottom: 20px;
     }
 
@@ -139,7 +152,7 @@
       font-size: 16px;
       font-weight: 300;
       line-height: 1.7;
-      color: #c0c0c0;
+      color: var(--ink-soft);
       margin-bottom: 14px;
     }
 
@@ -151,9 +164,9 @@
     .topics li {
       font-size: 15px;
       font-weight: 300;
-      color: #b0b0b0;
+      color: var(--ink-soft);
       padding: 10px 0;
-      border-bottom: 1px solid #262626;
+      border-bottom: 1px solid var(--line);
       display: flex;
       align-items: baseline;
       gap: 14px;
@@ -162,7 +175,7 @@
     .topics li .topic-num {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
-      color: #76009F;
+      color: var(--purple);
       min-width: 22px;
     }
 
@@ -171,7 +184,7 @@
       padding: 48px 24px;
       max-width: 900px;
       margin: 0 auto;
-      border-top: 1px solid #2a2a2a;
+      border-top: 1px solid var(--line);
     }
 
     .speaker-grid {
@@ -192,7 +205,7 @@
       object-fit: cover;
       margin: 0 auto 14px;
       display: block;
-      border: 2px solid #333;
+      border: 2px solid var(--line);
     }
 
     .speaker-name {
@@ -200,12 +213,13 @@
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 4px;
+      color: var(--ink);
     }
 
     .speaker-role {
       font-size: 13px;
       font-weight: 300;
-      color: #999;
+      color: var(--muted);
       line-height: 1.4;
     }
 
@@ -214,7 +228,7 @@
       font-size: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #76009F;
+      color: var(--purple);
       margin-top: 6px;
     }
 
@@ -223,7 +237,7 @@
       padding: 48px 24px 60px;
       max-width: 560px;
       margin: 0 auto;
-      border-top: 1px solid #2a2a2a;
+      border-top: 1px solid var(--line);
       text-align: center;
     }
 
@@ -234,7 +248,7 @@
     .register-copy {
       font-size: 15px;
       font-weight: 300;
-      color: #b8b8b8;
+      color: var(--ink-soft);
       line-height: 1.7;
       margin-bottom: 24px;
     }
@@ -243,13 +257,13 @@
     footer {
       padding: 28px 24px;
       text-align: center;
-      border-top: 1px solid #262626;
+      border-top: 1px solid var(--line);
     }
 
     footer p {
       font-family: 'Space Mono', monospace;
       font-size: 10px;
-      color: #555;
+      color: var(--muted);
       letter-spacing: 1px;
     }
 
@@ -278,7 +292,7 @@
 
   <!-- NAV -->
   <nav>
-    <img src="images/logo-white.png" alt="Reflections Collective" class="logo">
+    <img src="images/logo-black.png" alt="Reflections Collective" class="logo">
     <span class="nav-date">May 5, 2026 &middot; 12:00 PM ET</span>
   </nav>
 
@@ -288,7 +302,7 @@
     <h1>Built on Trust</h1>
     <p class="hero-subtitle">Inside the Sanofi &times; MTS Foundation Sickle Cell Partnership</p>
     <p class="hero-meta"><strong>May 5, 2026</strong> &middot; 12:00 PM Eastern &middot; Virtual</p>
-    <a href="https://us06web.zoom.us/webinar/register/WN_fiepxlJ7TC6-SSloom_1gg" class="cta-button" target="_blank" rel="noopener">Register on Zoom</a>
+    <a href="https://us06web.zoom.us/webinar/register/WN_fiepxlJ7TC6-SSloom_1gg" class="cta-button" target="_blank" rel="noopener">Register Now</a>
   </section>
 
   <!-- ABOUT -->
@@ -334,7 +348,7 @@
   <section class="register" id="register">
     <p class="section-label">Register</p>
     <p class="register-copy">Reserve your spot through Zoom. You'll receive a confirmation email with your join link and a calendar invite right after registering.</p>
-    <a href="https://us06web.zoom.us/webinar/register/WN_fiepxlJ7TC6-SSloom_1gg" class="cta-button" target="_blank" rel="noopener">Register on Zoom</a>
+    <a href="https://us06web.zoom.us/webinar/register/WN_fiepxlJ7TC6-SSloom_1gg" class="cta-button" target="_blank" rel="noopener">Register Now</a>
   </section>
 
   <!-- FOOTER -->
